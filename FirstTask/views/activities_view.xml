@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+      <record id="view_activities_form" model="ir.ui.view">
+        <field name="name">activities.form</field>
+        <field name="model">task.activities</field>
+        <field name="arch" type="xml">
+            <form string="Activities">
+                <header>
+                    <button name="action_cancel" string="Cancel" data-hotkey="shift+g"
+                            type="object" invisible="state == 'canceled'"/>
+
+                    <button name="action_open" string="Open" data-hotkey="shift+g"
+                            type="object" invisible="state == 'canceled' or state == 'open'"/>
+
+                    <button name="action_open" string="Re Open" data-hotkey="shift+g"
+                            type="object" invisible="state == 'draft' or state == 'open'"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="open,canceled,draft"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="state"/>
+                        <field name="responable"/>
+                    </group>
+                    <notebook>
+                        <page string="Members" name="membersInfo">
+                            <group>
+                                <field name = "membersOne2Many" string = "Members" widget="many2many_tags">
+                                    <tree editable="bottom">
+                                        <field name ="student"/>
+                                        <field name ="grade"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+            </form>
+        </field>
+      </record>
+
+</odoo>

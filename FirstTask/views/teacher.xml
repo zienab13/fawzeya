@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="employee_form_changes" model="ir.ui.view">
+        <field name="name">employee.form.changes</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='work_email']" position="after">
+                <field name="employee_type_is_readonly" invisible="1"/>
+                <field name="employee_type_for_task" readonly="employee_type_is_readonly == 1"/>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</odoo>

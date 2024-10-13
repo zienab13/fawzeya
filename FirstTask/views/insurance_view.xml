@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <record id="view_insurance_form" model="ir.ui.view">
+        <field name="name">insurance.form</field>
+        <field name="model">task.insurance</field>
+        <field name="arch" type="xml">
+            <form string="Insurance">
+                <header>
+                </header>
+                <sheet>
+
+                      <h1>
+                          <field name="name" placeholder="Sequence" style="font-size: min(4vw, 2.6rem);"/>
+                      </h1>
+                    <group>
+                        <field name="student"/>
+                        <field name="dateFrom"/>
+                        <field name="dateTo"/>
+                        <field name="grade" Readonly="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+</odoo>

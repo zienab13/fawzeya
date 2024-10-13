@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+      <record id="view_classes_form" model="ir.ui.view">
+        <field name="name">classes.form</field>
+        <field name="model">task.classes</field>
+        <field name="arch" type="xml">
+            <form string="Classes">
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="grade"/>
+                        <field name="responsable"/>
+                        <field name="noOfStudents"/>
+                    </group>
+                    <notebook>
+                        <page string="Stuff" name="stuffInfo">
+                            <group>
+                                <field name = "stuffOne2Many" string = "Stuff" widget="many2many_tags">
+                                    <tree editable="bottom">
+                                        <field name ="teacher"/>
+                                        <field name ="course"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+</odoo>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="action_school_main_menu_item" model="ir.actions.act_window">
+            <field name="name">Main School</field>
+            <field name="res_model">hr.employee</field>
+    </record>
+
+    <record id="action_teachers_menu_item" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="res_model">hr.employee</field>
+            <field name="domain">[('employee_type_for_task', '=', 'teacher')]</field>
+        <field name="context">{'default_employee_type_for_task': 'teacher' , 'default_employee_type_is_readonly' : True}</field>
+    </record>
+
+    <record id="action_student_menu_item" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">task.students</field>
+    </record>
+
+    <record id="action_classes_menu_item" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">task.classes</field>
+    </record>
+
+    <record id="action_courses_menu_item" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">task.courses</field>
+    </record>
+
+    <record id="action_activities_menu_item" model="ir.actions.act_window">
+        <field name="name">Activities</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">task.activities</field>
+    </record>
+
+    <record id="action_insurance_menu_item" model="ir.actions.act_window">
+        <field name="name">Insurance</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">task.insurance</field>
+    </record>
+
+    <record id="action_insurance_menu_item_form" model="ir.actions.act_window">
+        <field name="name">Insurance</field>
+        <field name="view_mode">form</field>
+        <field name="res_model">task.insurance</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="Main School"
+              id="school_main_menu_item_id"
+              groups="base.group_user"
+              sequence="31">
+
+        <menuitem name="School"
+                  id="school_menu_item"
+                  groups="base.group_user"
+                  sequence="1">
+            <menuitem name="Teachers"
+                      id="teachers_menu_item"
+                      groups="base.group_user"
+                      action="action_teachers_menu_item"
+                      sequence="1"/>
+            <menuitem name="Students"
+                      id="students_menu_item"
+                      groups="base.group_user"
+                      action="action_student_menu_item"
+                      sequence="2"/>
+            <menuitem name="Classes"
+                      id="classes_menu_item"
+                      groups="base.group_user"
+                      action="action_classes_menu_item"
+                      sequence="3">
+            </menuitem>
+        </menuitem>
+
+        <menuitem name="Main Courses"
+                  id="courses_main_menu_item"
+                  groups="base.group_user"
+                  sequence="2">
+            <menuitem name="Courses"
+                      id="courses_menu_item"
+                      groups="base.group_user"
+                      action="action_courses_menu_item"
+                      sequence="1"/>
+            <menuitem name="Activities"
+              id="activities_menu_item"
+              groups="base.group_user"
+              action="action_activities_menu_item"
+              sequence="2">
+            </menuitem>
+        </menuitem>
+
+        <menuitem name="Insurance"
+                  id="insurance_menu_item"
+                  groups="base.group_user"
+                  action="action_insurance_menu_item"
+                  sequence="3">
+        </menuitem>
+    </menuitem>
+</odoo>
