@@ -6,7 +6,7 @@ class activities(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
-
+    # hello zeinab
     name = fields.Char(string='Name', tracking=1)
 
     state = fields.Selection([('open','Open'),('canceled','Canceled'),('draft','Draft')], string='State', default='draft', tracking=1)
