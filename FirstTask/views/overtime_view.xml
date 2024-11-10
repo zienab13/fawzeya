@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_overtime_form" model="ir.ui.view">
+        <field name="name">overtime.obj.form</field>
+        <field name="model">overtime.obj</field>
+        <field name="arch" type="xml">
+            <form string="Over Time">
+                <header>
+                    <button name="action_submitted"
+                            type="object"
+                            data-hotkey="shift+g"
+                            string="Submit"
+                            invisible="state == 'submitted'"
+                    />
+                    <button name="action_managerApproved"
+                            type="object"
+                            data-hotkey="shift+g"
+                            string="Manager Approve"
+                            invisible="state != 'submitted'"
+                    />
+                    <button name="action_hrApproved"
+                            type="object"
+                            data-hotkey="shift+g"
+                            string="HR Approve"
+                            invisible="state != 'managerApproved' or isUserHRManager == False"
+                    />
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,managerApproved,hrApproved"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee"/>
+                            <field name="state"/>
+                            <field name="isUserHRManager"/>
+                        </group>
+                        <group>
+                            <field name="day"/>
+                            <field name="hours"/>
+                        </group>
+                        <group>
+                            <field name="notes"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+    <record id="view_overtime_tree" model="ir.ui.view">
+        <field name="name">overtime.obj.tree</field>
+        <field name="model">overtime.obj</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee"/>
+                <field name="state"/>
+                <field name="day"/>
+                <field name="hours"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

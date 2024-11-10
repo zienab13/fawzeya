@@ -16,5 +16,7 @@ insurance_id,insurance_name,model_task_insurance,base.group_user,1,1,1,1
 
 insurance_date_id,insurance_data_name,model_insurance_wizard,base.group_user,1,1,1,1
 
+overtime_id,overtime_name,model_overtime_obj,base.group_user,1,1,1,1
+
 
 

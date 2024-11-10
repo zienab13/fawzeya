@@ -22,6 +22,8 @@
         'views/courses_view.xml',
         'views/activities_view.xml',
         'views/insurance_view.xml',
+        'views/overtime_view.xml',
         'security/ir.model.access.csv',
     ],
+    'application': True,
 }

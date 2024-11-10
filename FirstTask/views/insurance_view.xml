@@ -5,10 +5,7 @@
         <field name="model">task.insurance</field>
         <field name="arch" type="xml">
             <form string="Insurance">
-                <header>
-                </header>
                 <sheet>
-
                       <h1>
                           <field name="name" placeholder="Sequence" style="font-size: min(4vw, 2.6rem);"/>
                       </h1>
@@ -22,5 +19,4 @@
             </form>
         </field>
       </record>
-
 </odoo>

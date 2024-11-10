@@ -51,6 +51,13 @@
         <field name="target">new</field>
     </record>
 
+    <record id="action_custom_over_time_menu_item" model="ir.actions.act_window">
+        <field name="name">Over Time</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">overtime.obj</field>
+    </record>
+
+
     <menuitem name="Main School"
               id="school_main_menu_item_id"
               groups="base.group_user"
@@ -100,6 +107,13 @@
                   groups="base.group_user"
                   action="action_insurance_menu_item"
                   sequence="3">
+        </menuitem>
+
+        <menuitem name="Custom Over Time"
+                  id="custom_over_time_menu_item"
+                  groups="base.group_user"
+                  action="action_custom_over_time_menu_item"
+                  sequence="4">
         </menuitem>
     </menuitem>
 </odoo>
