@@ -10,13 +10,12 @@
                             type="object"
                             data-hotkey="shift+g"
                             string="Submit"
-                            invisible="state == 'submitted'"
                     />
                     <button name="action_managerApproved"
                             type="object"
                             data-hotkey="shift+g"
                             string="Manager Approve"
-                            invisible="state != 'submitted'"
+                            invisible="state != 'submitted' or isUserEmployeeManager == False"
                     />
                     <button name="action_hrApproved"
                             type="object"
@@ -30,9 +29,10 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="employee"/>
-                            <field name="state"/>
-                            <field name="isUserHRManager"/>
+                            <field name="employee" readonly="isUserHRManager==0"/>
+                            <field name="state" invisible="1"/>
+                            <field name="isUserHRManager" invisible="1"/>
+                            <field name="isUserEmployeeManager" invisible="1"/>
                         </group>
                         <group>
                             <field name="day"/>

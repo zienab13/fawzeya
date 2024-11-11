@@ -10,10 +10,10 @@ class overtime(models.Model):
     _name = 'overtime.obj'
 
     isUserHRManager = fields.Boolean()
+    isUserEmployeeManager = fields.Boolean()
     currentUser = fields.Many2one('res.users', default=lambda self: self.env.user)
     employee = fields.Many2one('hr.employee', 'Employee',
-                               compute='_compute_default_employee',
-                               readonly=(isUserHRManager==False))
+                               compute='_compute_default_employee')
     day = fields.Date()
     hours = fields.Float()
     state = fields.Selection([
@@ -27,12 +27,12 @@ class overtime(models.Model):
     @api.depends('currentUser','day','hours','state','isUserHRManager')
     def _compute_default_employee(self):
         for rec in self:
-            print(rec.isUserHRManager)
             rec.employee = rec.env['hr.employee'].search([('user_id','=',rec.currentUser.id)],
                                                          limit=False)
             rec.isUserHRManager = (rec.employee.job_id.name == 'Human Resources Manager')
-            print(rec.employee.job_id.name)
-            print(rec.isUserHRManager)
+            if (rec.env['hr.employee'].search([('parent_id','=',rec.employee.id)])):
+                rec.isUserEmployeeManager = True
+                print(rec.isUserEmployeeManager)
 
     def action_submitted(self):
         for rec in self:
